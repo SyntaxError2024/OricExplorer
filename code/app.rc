@@ -1,0 +1,61 @@
+#pragma code_page(65001)
+
+#include <windows.h>
+#include "resource.h"
+
+1 RT_MANIFEST "app.manifest"
+IDI_APP_ICON ICON "oric.ico"
+
+IDM_MAIN_MENU MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open...\tCtrl+O",          IDM_FILE_OPEN
+        MENUITEM "&Close\tCtrl+W",            IDM_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tAlt+F4",             IDM_FILE_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Copy Active View\tCtrl+C", IDM_EDIT_COPY
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Oric Explorer...",   IDM_HELP_ABOUT
+    END
+END
+
+IDA_MAIN_ACCEL ACCELERATORS
+BEGIN
+    "O",    IDM_FILE_OPEN,        VIRTKEY, CONTROL
+    "W",    IDM_FILE_CLOSE,       VIRTKEY, CONTROL
+    "C",    IDM_EDIT_COPY,        VIRTKEY, CONTROL
+    VK_F5,  IDM_TOOLS_LAUNCH_EMU, VIRTKEY
+END
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     2,1,0,0
+PRODUCTVERSION  2,1,0,0
+FILEFLAGSMASK   0x3fL
+FILEFLAGS       0x0L
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_APP
+FILESUBTYPE     0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription",  "Oric Explorer - TAP, DSK & ROM Inspector"
+            VALUE "FileVersion",      "2.1.0.0"
+            VALUE "InternalName",     "OricExplorer"
+            VALUE "OriginalFilename", "OricExplorer.exe"
+            VALUE "ProductName",      "Oric Explorer"
+            VALUE "ProductVersion",   "2.1.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
